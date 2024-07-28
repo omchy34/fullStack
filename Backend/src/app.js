@@ -22,8 +22,19 @@ if (!fs.existsSync(uploadsDir)) {
 
 const app = express();
 
+const allowedOrigins = [
+  process.env.CORS_ORIGIN_FRONTEND,
+  process.env.CORS_ORIGIN_ADMIN
+];
+
 app.use(cors({
-  origin: process.env.CORS_ORIGIN,
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: "POST, GET, DELETE, PATCH, HEAD, PUT",
 }));
 
@@ -34,13 +45,13 @@ app.use(express.urlencoded({
   limit: "1mb",
 }));
 
-app.use(express.static("/public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Use routes
 app.use("/api/v1/user", router);
 app.use('/api/v1/certificates', Cerrouter);
 
 // Admin
-app.use("/api/v1/bytesminders" , router )
+app.use("/api/v1/bytesminders", router);
 
 export { app };
