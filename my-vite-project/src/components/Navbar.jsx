@@ -12,7 +12,7 @@ const Navbar = () => {
   useEffect(() => {
     if (accessToken) {
       async function getData() {
-        const response = await axios.post('/api/v1/user/userData', {}, {
+        const response = await axios.post('https://backend-tphy.onrender.com/api/v1/user/userData', {}, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
