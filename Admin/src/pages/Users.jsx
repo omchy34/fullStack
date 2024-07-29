@@ -10,7 +10,7 @@ const Users = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.post('/api/v1/user/fetchUsers'); // Replace with your API endpoint
+      const response = await axios.post('https://backend-tphy.onrender.com/api/v1/user/fetchUsers'); // Replace with your API endpoint
       // console.log(response.data.data);
       setUsers(response.data.data);
     } catch (error) {
@@ -20,7 +20,7 @@ const Users = () => {
 
   const deleteUser = async (userId) => {
     try {
-      await axios.delete(`/api/users/${userId}`); // Replace with your API endpoint
+      await axios.delete(`https://backend-tphy.onrender.com/api/users/${userId}`); // Replace with your API endpoint
       setUsers(users.filter(user => user._id !== userId));
     } catch (error) {
       console.error('Error deleting user:', error);
