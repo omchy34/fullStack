@@ -11,7 +11,7 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/v1/bytesminders/AdminLogin', { email, password });
+      const response = await axios.post('https://backend-tphy.onrender.com/api/v1/bytesminders/AdminLogin', { email, password });
       console.log(response);
       if (response) {
         alert(response.data.message);
