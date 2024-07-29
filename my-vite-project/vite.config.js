@@ -5,10 +5,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      // Proxying API requests to the backend server
       '/api/v1': {
         target: 'https://backend-tphy.onrender.com', // Replace with your backend server URL
-       
+        changeOrigin: true,
+        secure: true, // Set to true if your backend server uses HTTPS
+        rewrite: (path) => path.replace(/^\/api\/v1/, ''), // Optional: remove the /api/v1 prefix
       },
     },
   },
