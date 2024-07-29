@@ -7,7 +7,7 @@ export default defineConfig({
     proxy: {
       // Proxying API requests to the backend server
       '/api/v1': {
-        target: 'https://backend-tphy.onrender.com', // Replace with your backend server URL
+        target: 'https://frontend-2s9t.onrender.com/', // Replace with your backend server URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/v1/, '/api/v1'),
       },
