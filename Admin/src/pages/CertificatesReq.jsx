@@ -12,7 +12,7 @@ const CertificatesReq = () => {
 
   useEffect(() => {
     // Fetch all certificate requests
-    axios.get("/api/v1/certificates/requests", {
+    axios.get("https://backend-tphy.onrender.com/api/v1/certificates/requests", {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -28,7 +28,7 @@ const CertificatesReq = () => {
   }, [accessToken]);
 
   const handleApprove = (id) => {
-    axios.patch(`/api/v1/certificates/approve/${id}`, {}, {
+    axios.patch(`https://backend-tphy.onrender.com/api/v1/certificates/approve/${id}`, {}, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -47,7 +47,7 @@ const CertificatesReq = () => {
   };
 
   const handleDeny = (id) => {
-    axios.patch(`/api/v1/certificates/deny/${id}`, {}, {
+    axios.patch(`https://backend-tphy.onrender.com/api/v1/certificates/deny/${id}`, {}, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -66,7 +66,7 @@ const CertificatesReq = () => {
   };
 
   const handleDelete = (requestId) => {
-    axios.delete(`/api/v1/certificates/DeleteRequest/${requestId}`, {
+    axios.delete(`https://backend-tphy.onrender.com/api/v1/certificates/DeleteRequest/${requestId}`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -91,7 +91,7 @@ const CertificatesReq = () => {
     const formData = new FormData();
     formData.append("certificate", file);
 
-    axios.post(`/api/v1/certificates/upload/${id}`, formData, {
+    axios.post(`https://backend-tphy.onrender.com/api/v1/certificates/upload/${id}`, formData, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "multipart/form-data",
