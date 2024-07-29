@@ -47,7 +47,7 @@ const LoginPage = () => {
     if (Object.keys(newErrors).length === 0) {
       try {
         // const response = await axios.post('/api/v1/user/Login', {
-            const response = await axios.post('https://backend-tphy.onrender.com/api/v1/user/Login', {
+            const response = await axios.post('/api/v1/user/Login', {
           email: formData.email,
           password: formData.password,
         }, {
