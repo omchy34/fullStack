@@ -11,7 +11,7 @@ const Certificates = () => {
     async function checkEligibility() {
       try {
         const Token = localStorage.getItem("accessToken");
-        const response = await axios.get("/api/v1/certificates/eligible", {
+        const response = await axios.get("https://backend-tphy.onrender.com/api/v1/certificates/eligible", {
           headers: {
             Authorization: `Bearer ${Token}`,
           },
@@ -31,7 +31,7 @@ const Certificates = () => {
     try {
       const Token = localStorage.getItem("accessToken");
       const response = await axios.post(
-        "/api/v1/certificates/request",
+        "https://backend-tphy.onrender.com/api/v1/certificates/request",
         {},
         {
           headers: {
